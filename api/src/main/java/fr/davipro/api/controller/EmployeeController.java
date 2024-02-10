@@ -3,6 +3,7 @@ package fr.davipro.api.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -86,6 +87,15 @@ public class EmployeeController {
 		} else {
 			return null;
 		}
+	}
+
+    /**
+	 * Delete - Delete an employee
+	 * @param id - The id of the employee to delete
+	 */
+	@DeleteMapping("/employee/{id}")
+	public void deleteEmployee(@PathVariable("id") final Long id) {
+		employeeService.deleteEmployee(id);
 	}
 	
 }
